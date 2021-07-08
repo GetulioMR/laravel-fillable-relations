@@ -183,7 +183,7 @@ trait HasFillableRelations
             }
             if (!$related instanceof Model) {
                 $related = $relation->getRelated()
-                    ->where($related)->firstOrFail();
+                    ->firstOrCreate($related);
             }
 
             $relation->attach($related, $pivotColumns);
