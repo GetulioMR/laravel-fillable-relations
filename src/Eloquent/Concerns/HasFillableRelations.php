@@ -110,7 +110,7 @@ trait HasFillableRelations
         $entity = $attributes;
         if (!$attributes instanceof Model) {
             $entity = $relation->getRelated()
-                ->where($attributes)->firstOrFail();
+                ->firstOrCreate($attributes);
         }
 
         $relation->associate($entity);
